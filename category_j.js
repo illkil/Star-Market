@@ -1,76 +1,176 @@
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateCartStorage() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('quantity-btn')) {
+    const action = event.target.dataset.action;
+    const productId = event.target.closest('.product').querySelector('.add-to-cart').dataset.product;
+    const quantitySpan = event.target.closest('.product').querySelector('.quantity');
+
+    let quantity = parseInt(quantitySpan.textContent);
+
+    if (action === 'increase') {
+      quantity++;
+    } else if (action === 'decrease' && quantity > 1) {
+      quantity--;
+    }
+
+    quantitySpan.textContent = quantity;
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('add-to-cart')) {
+    const productElement = event.target.closest('.product');
+    const productId = event.target.dataset.product;
+    const productName = productElement.querySelector('h2').textContent.trim();
+    const productPrice = parseFloat(productElement.querySelector('p:nth-of-type(2)').textContent.replace('Price: SAR ', ''));
+    const productQuantity = parseInt(productElement.querySelector('.quantity').textContent);
+    const productImage = productElement.querySelector('img').src;
+    const productDescription = productElement.querySelector('p:nth-of-type(1)').textContent.trim();
+
+    const existingProduct = cart.find(item => item.id === productId);
+
+    if (existingProduct) {
+      existingProduct.quantity += productQuantity;
+    } else {
+      cart.push({
+        id: productId,
+        name: productName,
+        price: productPrice,
+        quantity: productQuantity,
+        image: productImage,
+        description: productDescription,
+      });
+    }
+
+    updateCartStorage();
+
+    alert(`${productQuantity} x ${productName} added to the cart!`);
+  }
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
-  let cart = {};
+  const sortSelect = document.getElementById('sort-options');
+  const productList = document.querySelector('.product-list');
+  const products = Array.from(productList.getElementsByClassName('product'));
 
-  const checkboxes = document.querySelectorAll('.select-product');
-  if (checkboxes.length > 0) {
-    checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', () => {
-        const product = checkbox.getAttribute('data-product');
-        if (checkbox.checked) {
-          cart[product] = { quantity: 1, price: parseFloat(checkbox.getAttribute('data-price')) };
-        } else {
-          delete cart[product];
-        }
-        console.log(cart);
-      });
+  function sortByName(order) {
+    return products.sort((a, b) => {
+      const nameA = a.querySelector('h2').textContent.toUpperCase();
+      const nameB = b.querySelector('h2').textContent.toUpperCase();
+
+      if (order === 'name-a-z') {
+        return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+      } else if (order === 'name-z-a') {
+        return nameA > nameB ? -1 : nameA < nameB ? 1 : 0;
+      }
     });
-  } else {
-    console.warn('No checkboxes found for product selection.');
   }
 
-  const quantityButtons = document.querySelectorAll('.quantity-btn');
-  if (quantityButtons.length > 0) {
-    quantityButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const product = button.closest('.product').querySelector('.select-product').getAttribute('data-product');
-        const action = button.getAttribute('data-action');
+  function sortByPrice(order) {
+    return products.sort((a, b) => {
+      const priceA = parseFloat(a.querySelectorAll('p')[1].textContent.replace(/[^0-9.-]+/g, ''));
+      const priceB = parseFloat(b.querySelectorAll('p')[1].textContent.replace(/[^0-9.-]+/g, ''));
 
-        if (cart[product]) {
-          if (action === 'increase') {
-            cart[product].quantity++;
-          } else if (action === 'decrease' && cart[product].quantity > 1) {
-            cart[product].quantity--;
-          }
-
-          button.closest('.product').querySelector('.quantity').textContent = cart[product].quantity;
-        }
-
-        console.log(cart);
-      });
+      if (order === 'price-low-high') {
+        return priceA - priceB;
+      } else if (order === 'price-high-low') {
+        return priceB - priceA;
+      }
     });
-  } else {
-    console.warn('No quantity buttons found.');
   }
 
-  const addToCartButtons = document.querySelectorAll('.add-to-cart');
-  if (addToCartButtons.length > 0) {
-    addToCartButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const product = button.getAttribute('data-product');
-        const quantityElement = document.querySelector(`[data-product="${product}"] .quantity`);
-
-        if (cart[product] && quantityElement) {
-          alert(`Added ${cart[product].quantity} x ${product} to the cart`);
-          
-          let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-          let existingProduct = storedCart.find(item => item.product === product);
-
-          if (existingProduct) {
-            existingProduct.quantity += cart[product].quantity;
-          } else {
-            storedCart.push({ product, quantity: cart[product].quantity, price: cart[product].price });
-          }
-
-          localStorage.setItem('cart', JSON.stringify(storedCart));
-          console.log('Cart saved to Local Storage:', storedCart);
-
-          window.location.href = 'cart.html';
-        } else {
-          alert('Please select a product first or check if quantity element exists.');
-        }
-      });
+  function updateProductList(sortedProducts) {
+    productList.innerHTML = '';
+    sortedProducts.forEach(product => {
+      productList.appendChild(product);
     });
-  } else {
-    console.warn('No "Add to Cart" buttons found.');
   }
+
+  sortSelect.addEventListener('change', (e) => {
+    const sortValue = e.target.value;
+    let sortedProducts;
+
+    if (sortValue === 'price-low-high' || sortValue === 'price-high-low') {
+      sortedProducts = sortByPrice(sortValue);
+    } else if (sortValue === 'name-a-z' || sortValue === 'name-z-a') {
+      sortedProducts = sortByName(sortValue);
+    }
+
+    updateProductList(sortedProducts);
+  });
+
+  function loadCart() {
+    let MakeupCart = JSON.parse(localStorage.getItem('MakeupCart')) || [];
+    console.log('Loaded MakeupCart:', MakeupCart);
+
+    MakeupCart.forEach(item => {
+      console.log(`Product: ${item.name}, Quantity: ${item.quantity}, Price: ${item.price}`);
+    });
+  }
+
+  loadCart();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const productList = document.querySelector('.product-list');
+  const checkOutButton = document.createElement('button');
+
+  checkOutButton.textContent = 'Add Selected to Cart';
+  checkOutButton.id = 'checkout-button';
+  checkOutButton.style.width = '120px'; 
+  checkOutButton.style.height = '50px';
+  checkOutButton.style.fontSize = '12px'; 
+  checkOutButton.style.position = 'relative';
+  checkOutButton.style.display = 'block'; 
+  checkOutButton.style.margin = '10px auto';
+  checkOutButton.style.cursor = 'pointer';
+  checkOutButton.style.backgroundColor = '#214388'; 
+  checkOutButton.style.color = '#fff'; 
+  checkOutButton.style.border = 'none';
+  checkOutButton.style.borderRadius = '5px'; 
+
+  const footer = document.querySelector('footer');
+  footer.parentNode.insertBefore(checkOutButton, footer);
+
+  checkOutButton.addEventListener('click', () => {
+    const checkedProducts = Array.from(productList.querySelectorAll('input[type="checkbox"]:checked'));
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    checkedProducts.forEach((checkbox) => {
+      const productElement = checkbox.closest('.product');
+      const productId = checkbox.dataset.product;
+      const productName = productElement.querySelector('h2').textContent.trim();
+      const productPrice = parseFloat(productElement.querySelector('p:nth-of-type(2)').textContent.replace('Price: SAR ', ''));
+      const productQuantity = parseInt(productElement.querySelector('.quantity').textContent.trim());
+      const productImage = productElement.querySelector('img').src;
+      const productDescription = productElement.querySelector('p:nth-of-type(1)').textContent.trim();
+
+      const existingProduct = cart.find((item) => item.id === productId);
+
+      if (existingProduct) {
+        existingProduct.quantity += productQuantity;
+      } else {
+        cart.push({
+          id: productId,
+          name: productName,
+          price: productPrice,
+          quantity: productQuantity,
+          image: productImage,
+          description: productDescription,
+        });
+      }
+    });
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert('Selected products have been added to your cart!');
+  });
 });
