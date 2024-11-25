@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories - Electronics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <div class="logo">
+        <h1><img src="images/صورة1.png" alt="Website Logo"> StarMarket</h1>
+      </div>
+    
+      <nav class="flex-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dashboard.html">Customer Dashboard</a></li>
+          <li><a href="seller-dashboard.html">Seller Dashboard</a></li>
+          <li class="menu-item">
+            <a href="#">Product Categories</a>
+            <ul class="dropdown">
+              <li><a href="makeup.html">Beauty</a></li>
+              <li><a href="electronics.html">Electronics</a></li>
+              <li><a href="home.html">Home & Decoration</a></li>
+            </ul>
+          </li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+    <script src="script.js"></script>
+
+    <main>
+      <h1>Electronics Category</h1>
+
+    <div class="sort-container">
+        <label for="sort-options">Sort by:</label>
+        <select id="sort-options">
+            <optgroup label="Price">
+                <option value="price-low-high">Price: Low to High</option>
+                <option value="price-high-low">Price: High to Low</option>
+            </optgroup>
+            <optgroup label="Rating">
+                <option value="rating-high-low">Highest Rating</option>
+                <option value="rating-low-high">Lowest Rating</option>
+            </optgroup>
+        </select>
+    </div>
+
+  <div class="product-list">
+  <!-- Playstation Product -->
+  <div class="product">
+    <h2>Playstation</h2>
+    <img class="pimg" src="images/playstation.png" alt="Playstation" width="120px" height="120px">
+    <p>Description: PlayStation 5 Console (Disc Version) With Controller.</p>
+    <p>Price: SAR 5000.00</p>
+    <p>Rating: ★★★★☆</p>
+    <input type="checkbox" class="select-product" data-product="playstation" data-price="5000.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="playstation">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="playstation">Add to Cart</button>
+  </div>
+
+  <!-- Headphones Product -->
+  <div class="product">
+    <h2>Headphones</h2>
+    <img class="pimg" src="images/hphone.png" alt="Headphones" width="120px" height="120px">
+    <p>Description: High-quality sound and noise-canceling features.</p>
+    <p>Price: SAR 1550.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="headphones" data-price="1550.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="headphones">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="headphones">Add to Cart</button>
+  </div>
+
+  <!-- Powerbank Product -->
+  <div class="product">
+    <h2>Powerbank</h2>
+    <img class="pimg" src="images/bank.png" alt="Powerbank" width="120px" height="120px">
+    <p>Description: Portable charger for your devices on the go.</p>
+    <p>Price: SAR 100.00</p>
+    <p>Rating: ★★★☆☆</p>
+    <input type="checkbox" class="select-product" data-product="powerbank" data-price="100.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="powerbank">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="powerbank">Add to Cart</button>
+  </div>
+
+  <!-- Hair Dryer Product -->
+  <div class="product">
+    <h2>Hair Dryer</h2>
+    <img class="pimg" src="images/haird.png" alt="Hair Dryer" width="120px" height="120px">
+    <p>Description: Powerful and fast drying for all hair types.</p>
+    <p>Price: SAR 700.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="hair-dryer" data-price="700.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="hair-dryer">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="hair-dryer">Add to Cart</button>
+  </div>
+
+  <!-- Printer Product -->
+  <div class="product">
+    <h2>Printer</h2>
+    <img class="pimg" src="images/print.png" alt="Printer" width="120px" height="120px">
+    <p>Description: Compact printer for all your home office needs.</p>
+    <p>Price: SAR 850.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="printer" data-price="850.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="printer">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="printer">Add to Cart</button>
+  </div>
+
+  <!-- Tablet Product -->
+  <div class="product">
+    <h2>Tablet</h2>
+    <img class="pimg" src="images/tablet.png" alt="Tablet" width="120px" height="120px">
+    <p>Description: Lightweight tablet for work, entertainment, and more.</p>
+    <p>Price: SAR 100.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="tablet" data-price="100.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="tablet">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="tablet">Add to Cart</button>
+  </div>
+
+  <!-- Smart TV Product -->
+  <div class="product">
+    <h2>Smart TV 55inch</h2>
+    <img class="pimg" src="images/stv.png" alt="Smart TV" width="120px" height="120px">
+    <p>Description: 55-inch 4K smart TV with vibrant display.</p>
+    <p>Price: SAR 80.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="smart-tv" data-price="80.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="smart-tv">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="smart-tv">Add to Cart</button>
+  </div>
+
+  <!-- Smartphone Product -->
+  <div class="product">
+    <h2>Smartphone</h2>
+    <img class="pimg" src="images/phone.png" alt="Smartphone" width="120px" height="120px">
+    <p>Description: Latest smartphone with high-end features.</p>
+    <p>Price: SAR 50.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="smartphone" data-price="50.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="smartphone">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="smartphone">Add to Cart</button>
+  </div>
+
+  <!-- Smart Watch Product -->
+  <div class="product">
+    <h2>Smart Watch</h2>
+    <img class="pimg" src="images/swatch.png" alt="Smart Watch" width="120px" height="120px">
+    <p>Description: Track your fitness with this stylish smart watch.</p>
+    <p>Price: SAR 80.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="smart-watch" data-price="80.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="smart-watch">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="smart-watch">Add to Cart</button>
+  </div>
+
+  <!-- Digital Camera Product -->
+  <div class="product">
+    <h2>Digital Camera</h2>
+    <img class="pimg" src="images/cam.png" alt="Digital Camera" width="120px" height="120px">
+    <p>Description: Capture high-quality photos and videos.</p>
+    <p>Price: SAR 300.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="digital-camera" data-price="300.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="digital-camera">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="digital-camera">Add to Cart</button>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+      <p>&copy; 2024 StarMarket. All rights reserved.</p>
+      <section>
+        <a href="https://whatsapp.com/"target="_blank"> <img src="images/whatsapp (1).png" alt="whatsapp" height="30" width="30"> +966512345678</a>
+        <a href="https://mail.google.com"target="_blank"> <img src="images/email (1).png" alt="email" height="30" width="30">StarMarket@gmail.com </a>
+        <a href="https://instagram.com"target="_blank"> <img src="images/instagram2.png" alt="instagram" height="30" width="30"> </a>
+        <a href="https://facebook.com" target="_blank"> <img src="images/facebook2.png" alt="facebook"height="30" width="30"> </a>
+        <a href="https://linkedin.com" target="_blank"> <img src="images/linkedin2.png" alt="linkedin"height="30" width="30"> </a>
+        <a href="https://x.com" target="_blank"> <img src="images/twitter (4).png" alt="x" height="30" width="30"> </a>
+      </section>
+    </footer>
+</body>
+ <script src="category_j.js"></script>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Product</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <h1><img src="images/صورة1.png" alt="Website Logo"> StarMarket</h1>
+    </div>
+
+    <nav class="flex-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Customer Dashboard</a></li>
+        <li><a href="seller-dashboard.html">Seller Dashboard</a></li>
+        <li class="menu-item">
+          <a href="#">Product Categories</a>
+          <ul class="dropdown">
+            <li><a href="makeup.html">Beauty</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="home.html">Home & Decoration</a></li>
+          </ul>
+        </li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script src="script.js"></script>
+
+  <fieldset style="text-align: left;" >
+    <legend>Add New Product:</legend>
+    <form id="add-product-form">
+      <label class="labels">Enter product image URL:<br> 
+        <input type="url" id="image" required placeholder="https://example.com/image.jpg">
+      </label>
+      <label class="labels">Name:<br>
+        <input type="text" id="name" name="name" maxlength="24" required>
+      </label>
+      <label class="labels">Price:<br>
+        <input type="number" id="price" name="price" required>
+      </label>
+      <label class="labels">Choose product category:
+        <select id="category" name="category" required>
+          <option value="Electronics">Electronics</option>
+          <option value="Home & Decoration">Home & Decoration</option>
+          <option value="Beauty">Beauty</option>
+        </select>
+      </label>
+      <label class="labels">Enter quantity of product:<br>
+        <input type="number" id="quantity" name="quantity" required>
+      </label>
+      <br>
+      <label class="labels">Enter product description:<br>
+        <textarea id="description" name="description" rows="10" cols="70" required></textarea>
+      </label>
+      <button type="submit">Add Product</button>
+    </form>
+  </fieldset>
+
+  <footer>
+    <p>&copy; 2024 StarMarket. All rights reserved.</p>
+    <section>
+      <a href="https://whatsapp.com/" target="_blank"> <img src="images/whatsapp (1).png" alt="whatsapp" height="30" width="30"> +966512345678</a>
+      <a href="https://mail.google.com" target="_blank"> <img src="images/email (1).png" alt="email" height="30" width="30">StarMarket@gmail.com </a>
+      <a href="https://instagram.com" target="_blank"> <img src="images/instagram2.png" alt="instagram" height="30" width="30"> </a>
+      <a href="https://facebook.com" target="_blank"> <img src="images/facebook2.png" alt="facebook" height="30" width="30"> </a>
+      <a href="https://linkedin.com" target="_blank"> <img src="images/linkedin2.png" alt="linkedin" height="30" width="30"> </a>
+      <a href="https://x.com" target="_blank"> <img src="images/twitter (4).png" alt="x" height="30" width="30"> </a>
+    </section>
+  </footer>
+
+  <script src="JavaScr.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById('add-product-form');
+
+     
+      form.addEventListener('submit', function (e) {
+        e.preventDefault(); 
+
+       
+        const image = document.getElementById('image').value;
+        const name = document.getElementById('name').value;
+        const price = document.getElementById('price').value;
+        const category = document.getElementById('category').value;
+        const quantity = document.getElementById('quantity').value;
+        const description = document.getElementById('description').value;
+
+        
+        if (!image || !name || !price || !category || !quantity || !description) {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+      
+        const namePattern = /^[A-Za-z][A-Za-z\s]*$/; 
+        if (!namePattern.test(name)) {
+          alert("Name must start with a letter and cannot contain numbers.");
+          return;
+        }
+
+        if (price.trim() === "" || isNaN(price)) {
+          alert("Price must be a valid number.");
+          return;
+        }
+
+        if (quantity.trim() === "" || isNaN(quantity)) {
+          alert("Quantity must be a valid number.");
+          return;
+        }
+
+        const newProduct = {
+          image: image,
+          name: name,
+          price: parseFloat(price),
+          category: category,
+          quantity: parseInt(quantity),
+          description: description
+        };
+
+        let products = JSON.parse(localStorage.getItem('sellerProducts')) || [];
+
+        products.push(newProduct);
+
+       
+        localStorage.setItem('sellerProducts', JSON.stringify(products));
+
+        
+        alert(`The product '${name}' has been added successfully!`);
+
+        form.reset();
+      });
+    });
+	
+  </script>
+</body>
+
+</html>

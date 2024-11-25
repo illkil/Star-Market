@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offer Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <h1><img src="images/صورة1.png" alt="Website Logo"> StarMarket</h1>
+    </div>
+    <nav class="flex-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Customer Dashboard</a></li>
+        <li><a href="seller-dashboard.html">Seller Dashboard</a></li>
+        <li class="menu-item">
+          <a href="#">Product Categories</a>
+          <ul class="dropdown">
+            <li><a href="makeup.html">Beauty</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="home.html">Home & Decoration</a></li>
+          </ul>
+        </li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script src="script.js"></script>
+
+  <section class="addOffer">
+    <div id="add">
+      <p id="adding">Add new offer<br><input type="file" id="offerImage"></p>
+      <div id="textadd">
+        <label>Enter your offer's name<br><input name="text" id="offerName"></label>
+        <br><br>
+        <label>Enter your offer's description<br>
+          <textarea name="ent" rows="10" cols="80" id="offerDescription">Offer description</textarea>
+        </label>
+        <br><br>
+        <button id="addOfferButton">ADD</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <p class="pe">All offers</p>
+    <p style="font-size: 1em;">To delete multiple offers, select the offers then press delete</p>
+    <div class="all-offers" id="offersContainer">
+      <!-- Static offers that you want to keep -->
+      <div class="offers">
+        <div class="offersdetails">
+          <img style="padding-right: 2em;" src="images/off3.jpg" alt="offer 3" width="150" height="150">
+          <div class="text">
+            <li style="display:flex;">
+              <p class="para">Kiko's Mascara</p><input type="checkbox" class="offer-checkbox">
+            </li>
+            <p><em style="color:red;">10% Discount</em> Buy Kiko's Mascara with 10% Discount <button class="delete-single-offer">Delete</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="offers">
+        <div class="offersdetails">
+          <img style="padding-right: 2em;" src="images/off4.jpg" alt="offer 4" width="150" height="150">
+          <div class="text">
+            <li style="display:flex;">
+              <p class="para">PlayStation</p><input type="checkbox" class="offer-checkbox">
+            </li>
+            <p><em style="color:red;">30% Discount</em> Buy PlayStation 5 with 30% Discount <button class="delete-single-offer">Delete</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="offers">
+        <div class="offersdetails">
+          <img style="padding-right: 2em;" src="images/off5.jpg" alt="offer 5" width="150" height="150">
+          <div class="text">
+            <li style="display:flex;">
+              <p class="para">Sony headphone</p><input type="checkbox" class="offer-checkbox">
+            </li>
+            <p><em style="color:red;">40% Discount for 2nd</em> Buy 1 Sony headphone and the 2nd is 40% Discount <button class="delete-single-offer">Delete</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="offers">
+        <div class="offersdetails">
+          <img style="padding-right: 2em;" src="images/HF.jpg" alt="offer 6" width="150" height="150">
+          <div class="text">
+            <li style="display:flex;">
+              <p class="para">Headphone</p><input type="checkbox" class="offer-checkbox">
+            </li>
+            <p><em style="color:red;">Under SAR 150.00 <button class="delete-single-offer">Delete</button></p>
+          </div>
+        </div>
+      </div>
+	  
+      <div class="offers">
+        <div class="offersdetails">
+          <img style="padding-right: 2em;" src="images/cam.jpg" alt="offer 6" width="150" height="150">
+          <div class="text">
+            <li style="display:flex;">
+              <p class="para">camera</p><input type="checkbox" class="offer-checkbox">
+            </li>
+            <p><em style="color:red;">50% Discount Limited time only for get yours now!<button class="delete-single-offer">Delete</button></p>
+          </div>
+        </div>
+      </div>
+	  <div class="offers">
+        <div class="offersdetails">
+          <img style="padding-right: 2em;" src="images/off2.jpg" alt="offer 6" width="150" height="150">
+          <div class="text">
+            <li style="display:flex;">
+              <p class="para">Nars Concealer</p><input type="checkbox" class="offer-checkbox">
+            </li>
+            <p><em style="color:red;">2 in 1 Buy 1 Nars Concealer and the other for free<button class="delete-single-offer">Delete</button></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button id="deleteOffers" style="font-size: 1em;">Delete</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 StarMarket. All rights reserved.</p>
+    <section>
+      <a href="https://whatsapp.com/" target="_blank">
+        <img src="images/whatsapp (1).png" alt="whatsapp" height="30" width="30"> +966512345678
+      </a>
+      <a href="https://mail.google.com" target="_blank">
+        <img src="images/email (1).png" alt="email" height="30" width="30"> StarMarket@gmail.com
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <img src="images/instagram2.png" alt="instagram" height="30" width="30">
+      </a>
+      <a href="https://facebook.com" target="_blank">
+        <img src="images/facebook2.png" alt="facebook" height="30" width="30">
+      </a>
+      <a href="https://linkedin.com" target="_blank">
+        <img src="images/linkedin2.png" alt="linkedin" height="30" width="30">
+      </a>
+      <a href="https://x.com" target="_blank">
+        <img src="images/twitter (4).png" alt="x" height="30" width="30">
+      </a>
+    </section>
+  </footer>
+
+  <script>
+    const offersContainer = document.getElementById('offersContainer');
+    const addOfferButton = document.getElementById('addOfferButton');
+    const deleteOffersButton = document.getElementById('deleteOffers');
+
+    // Add a new offer
+    addOfferButton.addEventListener('click', () => {
+      const offerName = document.getElementById('offerName').value;
+      const offerDescription = document.getElementById('offerDescription').value;
+      const offerImage = document.getElementById('offerImage').files[0];
+
+      if (!offerName || !offerDescription || !offerImage) {
+        alert('Please fill out all fields and select an image.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const offerHTML = `
+          <div class="offers">
+            <div class="offersdetails">
+              <img style="padding-right: 2em;" src="${reader.result}" alt="New Offer" width="150" height="150">
+              <div class="text">
+                <li style="display:flex;">
+                  <p class="para">${offerName}</p><input type="checkbox" class="offer-checkbox">
+                </li>
+                <p><em style="color:red;">${offerDescription}</em><button class="delete-single-offer">Delete</button></p>
+              </div>
+            </div>
+          </div>`;
+        offersContainer.insertAdjacentHTML('beforeend', offerHTML);
+      };
+      reader.readAsDataURL(offerImage);
+
+      
+      document.getElementById('offerName').value = '';
+      document.getElementById('offerDescription').value = '';
+      document.getElementById('offerImage').value = '';
+    });
+
+    deleteOffersButton.addEventListener('click', () => {
+      const checkboxes = document.querySelectorAll('.offer-checkbox:checked');
+      checkboxes.forEach(checkbox => {
+        checkbox.closest('.offers').remove();
+      });
+    });
+
+   
+    offersContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('delete-single-offer')) {
+        e.target.closest('.offers').remove();
+      }
+    });
+  </script>
+</body>
+
+</html>

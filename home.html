@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Categories - Home & Decoration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <h1><img src="images/صورة1.png" alt="Website Logo"> StarMarket</h1>
+    </div>
+
+    <nav class="flex-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Customer Dashboard</a></li>
+        <li><a href="seller-dashboard.html">Seller Dashboard</a></li>
+        <li class="menu-item">
+          <a href="#">Product Categories</a>
+          <ul class="dropdown">
+            <li><a href="makeup.html">Beauty</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="home.html">Home & Decoration</a></li>
+          </ul>
+        </li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script src="script.js"></script>
+
+  <main>
+    <h1>Home Category</h1>
+
+    <div class="sort-container">
+      <label for="sort-options">Sort by:</label>
+      <select id="sort-options">
+        <optgroup label="Price">
+          <option value="price-low-high">Price: Low to High</option>
+          <option value="price-high-low">Price: High to Low</option>
+        </optgroup>
+        <optgroup label="Rating">
+          <option value="rating-high-low">Highest Rating</option>
+          <option value="rating-low-high">Lowest Rating</option>
+        </optgroup>
+      </select>
+    </div>
+
+  <div class="product-list">
+  <!-- Wooden Chair -->
+  <div class="product">
+    <h2>Chair</h2>
+    <img class="pimg" src="images/wood.png" alt="Chair" width="120px" height="120px">
+    <p>Description: A simple wooden chair.</p>
+    <p>Price: SAR 40.00</p>
+    <p>Rating: ★★★★☆</p>
+    <input type="checkbox" class="select-product" data-product="chair" data-price="40.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="chair">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="chair">Add to Cart</button>
+  </div>
+
+  <!-- Office Chair -->
+  <div class="product">
+    <h2>Office Chair</h2>
+    <img class="pimg" src="images/oficechair.png" alt="Office Chair" width="120px" height="120px">
+    <p>Description: Silver office chair, height 130cm.</p>
+    <p>Price: SAR 200.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="office-chair" data-price="200.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="office-chair">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="office-chair">Add to Cart</button>
+  </div>
+
+  <!-- Kitchen Table -->
+  <div class="product">
+    <h2>Kitchen Table</h2>
+    <img class="pimg" src="images/table.png" alt="Kitchen Table" width="120px" height="120px">
+    <p>Description: Black kitchen table.</p>
+    <p>Price: SAR 700.00</p>
+    <p>Rating: ★★★☆☆</p>
+    <input type="checkbox" class="select-product" data-product="kitchen-table" data-price="700.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="kitchen-table">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="kitchen-table">Add to Cart</button>
+  </div>
+
+  <!-- Wardrobe -->
+  <div class="product">
+    <h2>Wardrobe</h2>
+    <img class="pimg" src="images/draw.png" alt="Wardrobe" width="120px" height="120px">
+    <p>Description: White wardrobe, height 200cm.</p>
+    <p>Price: SAR 700.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="wardrobe" data-price="700.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="wardrobe">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="wardrobe">Add to Cart</button>
+  </div>
+
+  <!-- Door Mat -->
+  <div class="product">
+    <h2>Door Mat</h2>
+    <img class="pimg" src="images/mat.png" alt="Door Mat" width="120px" height="120px">
+    <p>Description: Brown door mat, size 40cm x 80cm.</p>
+    <p>Price: SAR 30.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="door-mat" data-price="30.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="door-mat">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="door-mat">Add to Cart</button>
+  </div>
+
+  <!-- Wall Art -->
+  <div class="product">
+    <h2>Wall Art</h2>
+    <img class="pimg" src="images/wall.png" alt="Wall Art" width="120px" height="120px">
+    <p>Description: White painting, 100cm x 50cm.</p>
+    <p>Price: SAR 100.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="wall-art" data-price="100.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="wall-art">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="wall-art">Add to Cart</button>
+  </div>
+
+  <!-- Clock -->
+  <div class="product">
+    <h2>Clock</h2>
+    <img class="pimg" src="images/clock.png" alt="Clock" width="120px" height="120px">
+    <p>Description: Golden metallic wall clock.</p>
+    <p>Price: SAR 80.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="clock" data-price="80.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="clock">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="clock">Add to Cart</button>
+  </div>
+
+  <!-- Basket -->
+  <div class="product">
+    <h2>Basket</h2>
+    <img class="pimg" src="images/pasket.png" alt="Basket" width="120px" height="120px">
+    <p>Description: Plant basket, size 60cm - 90cm.</p>
+    <p>Price: SAR 50.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="basket" data-price="50.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="basket">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="basket">Add to Cart</button>
+  </div>
+
+  <!-- Yoga Mat -->
+  <div class="product">
+    <h2>Yoga Mat</h2>
+    <img class="pimg" src="images/ygmat.png" alt="Yoga Mat" width="120px" height="120px">
+    <p>Description: Green yoga mat.</p>
+    <p>Price: SAR 80.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="yoga-mat" data-price="80.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="yoga-mat">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="yoga-mat">Add to Cart</button>
+  </div>
+
+  <!-- Mirror -->
+  <div class="product">
+    <h2>Mirror</h2>
+    <img class="pimg" src="images/mirror.jpg" alt="Mirror" width="120px" height="120px">
+    <p>Description: Wall mirror with brown edge.</p>
+    <p>Price: SAR 300.00</p>
+    <p>Rating: ★★★★★</p>
+    <input type="checkbox" class="select-product" data-product="mirror" data-price="300.00">
+    <button class="quantity-btn" data-action="decrease">-</button>
+    <span class="quantity" data-product="mirror">1</span>
+    <button class="quantity-btn" data-action="increase">+</button>
+    <button class="add-to-cart" data-product="mirror">Add to Cart</button>
+  </div>
+</div>
+
+
+
+
+  </main>
+  <footer>
+    <p>&copy; 2024 StarMarket. All rights reserved.</p>
+    <section>
+      <a href="https://whatsapp.com/" target="_blank"> <img src="images/whatsapp (1).png" alt="whatsapp" height="30"
+          width="30"> +966512345678</a>
+      <a href="https://mail.google.com" target="_blank"> <img src="images/email (1).png" alt="email" height="30"
+          width="30">StarMarket@gmail.com </a>
+      <a href="https://instagram.com" target="_blank"> <img src="images/instagram2.png" alt="instagram" height="30"
+          width="30"> </a>
+      <a href="https://facebook.com" target="_blank"> <img src="images/facebook2.png" alt="facebook" height="30"
+          width="30"> </a>
+      <a href="https://linkedin.com" target="_blank"> <img src="images/linkedin2.png" alt="linkedin" height="30"
+          width="30"> </a>
+      <a href="https://x.com" target="_blank"> <img src="images/twitter (4).png" alt="x" height="30" width="30"> </a>
+    </section>
+  </footer>
+ 
+  
+</body>
+ <script src="category_j.js"></script>
+</html>

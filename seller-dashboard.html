@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <h1><img src="images/صورة1.png" alt="Website Logo"> StarMarket</h1>
+    </div>
+
+    <nav class="flex-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Customer Dashboard</a></li>
+        <li><a href="seller-dashboard.html">Seller Dashboard</a></li>
+        <li class="menu-item">
+          <a href="#">Product Categories</a>
+          <ul class="dropdown">
+            <li><a href="makeup.html">Beauty</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="home.html">Home & Decoration</a></li>
+          </ul>
+        </li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script src="script.js"></script>
+
+  <div id="navigation">
+    <ul>
+      <li>
+        <a href="OfferForm.html"><img src="images/right-arrow.png" alt=""></a> 
+        <h3>Manage Offers</h3>
+      </li>
+      <li>
+        <a href="NewProdect.html"><img src="images/right-arrow.png" alt=""></a>
+        <h3>Add New Product</h3>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <main>
+    <div class="products" id="product-list">
+    
+    </div>
+  </main>
+
+  <!-- Message when no products available -->
+  <div class="no-products-message" style="display: none;">
+    <p style="text-align: center ;">No products available, you can add a new product in <strong>Add New Product</strong> page.</p>
+  </div><br><br>
+
+  <footer>
+    <p>&copy; 2024 StarMarket. All rights reserved.</p>
+    <section>
+      <a href="https://www.whatsapp.com/" target="_blank"> <img src="images/whatsapp (1).png" alt="whatsapp" height="30" width="30"> +966512345678</a>
+      <a href="https://mail.google.com" target="_blank"> <img src="images/email (1).png" alt="email" height="30" width="30">StarMarket@gmail.com </a>
+      <a href="https://instagram.com" target="_blank"> <img src="images/instagram2.png" alt="instagram" height="30" width="30"> </a>
+      <a href="https://facebook.com" target="_blank"> <img src="images/facebook2.png" alt="facebook" height="30" width="30"> </a>
+      <a href="https://linkedin.com" target="_blank"> <img src="images/linkedin2.png" alt="linkedin" height="30" width="30"> </a>
+      <a href="https://x.com" target="_blank"> <img src="images/twitter (4).png" alt="x" height="30" width="30"> </a>
+    </section>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const productList = document.getElementById('product-list');
+      const noProductsMessage = document.querySelector('.no-products-message');
+
+   
+      const products = JSON.parse(localStorage.getItem('sellerProducts')) || [];
+
+     
+      if (products.length === 0) {
+        noProductsMessage.style.display = 'block';
+        productList.style.display = 'none';
+      } else {
+        noProductsMessage.style.display = 'none';
+        productList.style.display = 'block';
+
+       
+        products.forEach(product => {
+          const productItem = document.createElement('div');
+          productItem.classList.add('product-item');
+          productItem.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" width="150" height="150">
+            <div class="product-info">
+              <p>${product.name}</p>
+              <p>Category: ${product.category}</p>
+              <p>Price: SAR ${product.price}</p>
+              <p>Quantity: ${product.quantity}</p>
+              <p>Description: ${product.description}</p>
+            </div>
+          `;
+          productList.appendChild(productItem);
+        });
+      }
+    });
+	
+	
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Categories - Makeup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <h1><img src="images/صورة1.png" alt="Website Logo"> StarMarket</h1>
+    </div>
+         <nav class="flex-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dashboard.html">Customer Dashboard</a></li>
+          <li><a href="seller-dashboard.html">Seller Dashboard</a></li>
+          <li class="menu-item">
+            <a href="#">Product Categories</a>
+            <ul class="dropdown">
+              <li><a href="makeup.html">Beauty</a></li>
+              <li><a href="electronics.html">Electronics</a></li>
+              <li><a href="home.html">Home & Decoration</a></li>
+            </ul>
+          </li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+  </header>
+  <script src="script.js"></script>
+
+  <main>
+    <h1>Makeup Category</h1>
+
+    <div class="sort-container">
+      <label for="sort-options">Sort by:</label>
+      <select id="sort-options">
+        <optgroup label="Price">
+          <option value="price-low-high">Price: Low to High</option>
+          <option value="price-high-low">Price: High to Low</option>
+        </optgroup>
+        <optgroup label="Rating">
+          <option value="rating-high-low">Highest Rating</option>
+          <option value="rating-low-high">Lowest Rating</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="product-list">
+      <!-- Blusher Product -->
+      <div class="product">
+        <h2>Blusher</h2>
+        <img class="pimg" src="images/blush.png" alt="Blusher" width="120px" height="120px">
+        <p>Description: Soft and blendable blusher for a natural glow.</p>
+        <p>Price: SAR 201.00</p>
+        <p>Rating: ★★★☆☆</p>
+        <input type="checkbox" class="select-product" data-product="blusher" data-price="201.00">
+        <button class="quantity-btn" data-action="decrease">-</button>
+        <span class="quantity" data-product="blusher">1</span>
+        <button class="quantity-btn" data-action="increase">+</button>
+        <button class="add-to-cart" data-product="blusher">Add to Cart</button>
+      </div>
+
+      <!-- Maskara Product -->
+      <div class="product">
+        <h2>Maskara</h2>
+        <img class="pimg" src="images/maskara.png" alt="Maskara" width="120px" height="120px">
+        <p>Description: Waterproof mascara for long and voluminous lashes.</p>
+        <p>Price: SAR 150.00</p>
+        <p>Rating: ★★★★★</p>
+        <input type="checkbox" class="select-product" data-product="maskara" data-price="150.00">
+        <button class="quantity-btn" data-action="decrease">-</button>
+        <span class="quantity" data-product="maskara">1</span>
+        <button class="quantity-btn" data-action="increase">+</button>
+        <button class="add-to-cart" data-product="maskara">Add to Cart</button>
+      </div>
+
+      <!-- Brush Set Product -->
+      <div class="product">
+        <h2>Brush Set</h2>
+        <img class="pimg" src="images/brush.png" alt="Brush Set" width="120px" height="120px">
+        <p>Description: A set of 5 essential brushes for makeup application.</p>
+        <p>Price: SAR 200.00</p>
+        <p>Rating: ★★★★★</p>
+        <input type="checkbox" class="select-product" data-product="brush-set" data-price="200.00">
+        <button class="quantity-btn" data-action="decrease">-</button>
+        <span class="quantity" data-product="brush-set">1</span>
+        <button class="quantity-btn" data-action="increase">+</button>
+        <button class="add-to-cart" data-product="brush-set">Add to Cart</button>
+      </div>
+
+      <!-- Lipstick Product -->
+      <div class="product">
+        <h2>Lipstick</h2>
+        <img class="pimg" src="images/lipls.png" alt="Lipstick" width="120px" height="120px">
+        <p>Description: Long-lasting matte lipstick in bold shades.</p>
+        <p>Price: SAR 100.00</p>
+        <p>Rating: ★★★★★</p>
+        <input type="checkbox" class="select-product" data-product="lipstick" data-price="100.00">
+        <button class="quantity-btn" data-action="decrease">-</button>
+        <span class="quantity" data-product="lipstick">1</span>
+        <button class="quantity-btn" data-action="increase">+</button>
+        <button class="add-to-cart" data-product="lipstick">Add to Cart</button>
+      </div>
+
+      <!-- Lip Liner Product -->
+      <div class="product">
+        <h2>Lip Liner</h2>
+        <img class="pimg" src="images/lipli.png" alt="Lip Liner" width="120px" height="120px">
+        <p>Description: Smooth lip liner to define and shape lips.</p>
+        <p>Price: SAR 80.00</p>
+        <p>Rating: ★★★★★</p>
+        <input type="checkbox" class="select-product" data-product="lip-liner" data-price="80.00">
+        <button class="quantity-btn" data-action="decrease">-</button>
+        <span class="quantity" data-product="lip-liner">1</span>
+        <button class="quantity-btn" data-action="increase">+</button>
+        <button class="add-to-cart" data-product="lip-liner">Add to Cart</button>
+      </div>
+
+      <!-- Eyeshadow Palette Product -->
+      <div class="product">
+        <h2>Eyeshadow Palette</h2>
+        <img class="pimg" src="images/ishad.png" alt="Eyeshadow Palette" width="120px" height="120px">
+        <p>Description: 12 shades of eyeshadow for any look.</p>
+        <p>Price: SAR 230.00</p>
+        <p>Rating: ★★★★★</p>
+        <input type="checkbox" class="select-product" data-product="eyeshadow" data-price="230.00">
+        <button class="quantity-btn" data-action="decrease">-</button>
+        <span class="quantity" data-product="eyeshadow">1</span>
+        <button class="quantity-btn" data-action="increase">+</button>
+        <button class="add-to-cart" data-product="eyeshadow">Add to Cart</button>
+      </div>
+
+      <!-- Loose Powder Product -->
+      <div class="product">
+        <h2>Loose Powder</h2>
+        <img class="pimg" src="images/loose.png" alt="Loose Powder" width="120px" height="120px">
+        <p>Description: Translucent powder to set makeup and control shine.</p>
+        <p>Price: SAR 80.00</p>
+        <p>Rating: ★★★★★</p>
+        <input type="checkbox" class="select-product" data-product="loose-powder" data-price="80.00">
+        <button class="quantity-btn" data-action="decrease">-</button>
+        <span class="quantity" data-product="loose-powder">1</span>
+        <button class="quantity-btn" data-action="increase">+</button>
+        <button class="add-to-cart" data-product="loose-powder">Add to Cart</button>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2024 StarMarket. All rights reserved.</p>
+  </footer>
+
+</body>
+ <script src="category_j.js"></script>
+</html>
