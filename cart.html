@@ -37,6 +37,8 @@
     <section class="cart">
       <h2>Your Cart</h2>
       <p>Review your items before checking out:</p>
+      <div id="cart-container"></div>
+
       <div id="cart-items" class="cart-items"></div>
       <div id="total-price" class="total-price"><strong>Total: SAR 0.00</strong></div>
       
@@ -66,72 +68,89 @@
   </footer>
 
   <script>
-    // JavaScript for managing the cart
-    document.addEventListener('DOMContentLoaded', function () {
-  const cartItemsContainer = document.getElementById('cart-items');
-  const totalPriceElement = document.getElementById('total-price');
+  
+function checkOut() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  if (!cartItemsContainer || !totalPriceElement) {
-    console.error("Required elements are missing from the DOM.");
+  if (cart.length === 0) {
+    alert('Your cart is empty. Please add items before checking out.');
     return;
   }
 
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 
-  function renderCart() {
-    let totalPrice = 0;
-    cartItemsContainer.innerHTML = '';
+  alert(`Thank you for shopping with us! Your total is SAR ${totalPrice.toFixed(2)}`);
 
-    cart.forEach((item, index) => {
-      const itemDiv = document.createElement('div');
-      itemDiv.className = 'cart-items';
+  localStorage.removeItem('cart');
 
-      itemDiv.innerHTML = `
-        <button id="delete" class="delete-button" onclick="deleteItem(${index})">
-          <img src="images/delete.png" alt="delete icon">
-        </button>
-        <img class="pimg" src="${item.image}" alt="${item.product}">
-        <h3>${item.product}</h3>
-        <p>Description: ${item.description}</p>
-        <div class="quantity-update">
-          <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
-        </div>
-        <p><strong>Price: SAR ${item.price}</strong></p>
-        <p><strong>Total: SAR ${(item.quantity * item.price).toFixed(2)}</strong></p>
-      `;
+  window.location.href = 'evaluation.html';
+}
 
-      cartItemsContainer.appendChild(itemDiv);
-      totalPrice += item.quantity * item.price;
-    });
 
-    totalPriceElement.innerHTML = `<strong>Total: SAR ${totalPrice.toFixed(2)}</strong>`;
-  }
-
-  window.updateQuantity = function (index, newQuantity) {
-    if (newQuantity > 0) {
-      cart[index].quantity = parseInt(newQuantity, 10);
+  document.addEventListener('DOMContentLoaded', function () {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+  
+    if (!cartItemsContainer || !totalPriceElement) {
+      console.error("Required elements are missing from the DOM.");
+      return;
+    }
+  
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+    function renderCart() {
+      let totalPrice = 0;
+      cartItemsContainer.innerHTML = '';
+  
+      cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-items';
+  
+        itemDiv.innerHTML = `
+          <button id="delete" class="delete-button" onclick="deleteItem(${index})">
+            <img src="images/delete.png" alt="delete icon">
+          </button>
+          <img class="pimg" src="${item.image}" alt="${item.name}">
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <div class="quantity-update">
+            <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+          </div>
+          <p><strong>Price: SAR ${item.price}</strong></p>
+          <p><strong>Total: SAR ${(item.quantity * item.price).toFixed(2)}</strong></p>
+        `;
+  
+        cartItemsContainer.appendChild(itemDiv);
+        totalPrice += item.quantity * item.price;
+      });
+  
+      totalPriceElement.innerHTML = `<strong>Total: SAR ${totalPrice.toFixed(2)}</strong>`;
+    }
+  
+    window.updateQuantity = function (index, newQuantity) {
+      if (newQuantity > 0) {
+        cart[index].quantity = parseInt(newQuantity, 10);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+      } else {
+        alert('Quantity must be at least 1.');
+      }
+    };
+  
+    window.deleteItem = function (index) {
+      cart.splice(index, 1);
       localStorage.setItem('cart', JSON.stringify(cart));
       renderCart();
-    } else {
-      alert('Quantity must be at least 1.');
-    }
-  };
-
-  window.deleteItem = function (index) {
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    };
+  
+    window.clearCart = function () {
+      localStorage.removeItem('cart');
+      cart.length = 0;
+      renderCart();
+    };
+  
     renderCart();
-  };
-
-  window.clearCart = function () {
-    localStorage.removeItem('cart');
-    cart.length = 0;
-    renderCart();
-  };
-
-  renderCart();
-});
-
+  });
   </script>
 </body>
 
