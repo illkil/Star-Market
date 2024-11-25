@@ -959,3 +959,100 @@ body.theme-dark  .offer {
   color: black;
 }
 
+/* تحسين الهيكل العام للهوم وجعل العناصر تتجاوب */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* جعل قسم الرؤية (Vision) مرنًا */
+.vision {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.vision img {
+  flex: 1;
+  max-width: 100%;
+  margin: 10px;
+}
+
+.vision p {
+  flex: 2;
+  text-align: left;
+  margin: 10px;
+}
+
+/* قائمة المنتجات الأساسية */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.product {
+  width: calc(25% - 20px);
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+/* صور المنتجات لتكون متجاوبة */
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* قواعد @media لتجاوب الهوم */
+
+/* للأجهزة اللوحية (Tablet - العرض ≤ 768px) */
+@media (max-width: 768px) {
+  .vision {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .vision img {
+      max-width: 80%;
+      margin: 0 auto;
+  }
+
+  .product {
+      width: calc(50% - 20px);
+  }
+}
+
+/* للأجهزة الجوالة (Mobile - العرض ≤ 480px) */
+@media (max-width: 480px) {
+  .vision {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .vision img {
+      max-width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .product {
+      width: 100%;
+  }
+
+  nav.flex-nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav.flex-nav ul li {
+      margin: 10px 0;
+  }
+}
